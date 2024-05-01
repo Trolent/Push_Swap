@@ -6,119 +6,130 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:23 by trolland          #+#    #+#             */
-/*   Updated: 2024/04/09 17:51:32 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/01 20:08:21 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
-int	check_data(char **argv)
+int	verify_elements(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (argv[++i])
+	while (ft_iswhitespace(str[i]))
+		i++;
+	if (ft_isposneg(str[i]) == 1)
+		i++;
+	if (str[i] == '\0')
+		return (-1);
+	while (ft_isdigit(str[i]))
+		i++;
+	while (ft_iswhitespace(str[i]))
+		i++;
+	if (str[i] != '\0')
+		return (-1);
+	return (1);
+}
+
+int	check_double(t_control *control)
+{
+	t_node	*temp;
+	t_node	*comp;
+
+	temp = control->stack_a;
+	while (temp)
 	{
-		j = -1;
-		while (argv[i][++j])
+		comp = temp->next;
+		while (comp)
 		{
-			if (!(ft_isdigit(argv[i][j]) || argv[i][j] == ' '
-					|| argv[i][j] == '-' || argv[i][j] == '+'))
+			if (temp->nb == comp->nb)
 				return (-1);
-			if ((argv[i][j] == '-' || argv[i][j] == '+') && argv[i][j + 1]
-				&& (argv[i][j + 1] == '-' || argv[i][j + 1] == '+'))
-				return (-1);
+			comp = comp->next;
 		}
+		temp = temp->next;
 	}
 	return (0);
 }
-int	val_len(int value)
-{
-	int	i;
 
-	i = 0;
-	if (value < 0)
-		i++;
-	while (value)
-	{
-		value /= 10;
-		i++;
-	}
-	return (i);
-}
-
-t_node	*assign_values(t_node **lst, char **argv)
+int	parse(t_control *control, int argc, char **argv)
 {
 	int		i;
-	int		j;
 	t_node	*new;
 
-	new = NULL;
-	i = 0;
-	while (argv[++i])
+	if (argc < 3)
+		return (-1);
+	control->stack_a = NULL;
+	i = 1;
+	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
+		new = ft_lstnew_node(argv[i]);
+		if (new == NULL)
 		{
-			if (ft_isdigit(argv[i][j]) || ft_isposneg(argv[i][j]))
-			{
-				new = new_node(argv[i] + j);
-				if (!new)
-					return (free_lst(lst), ft_printf(CREATE), NULL);
-				add_node_back(lst, new);
-			}
-			while (ft_isdigit(argv[i][j]) || ft_isposneg(argv[i][j]))
-				j++;
-			if (argv[i][j] == ' ')
-				j++;
+			// ajouter le free de la stack;
+			return (-1);
 		}
+		ft_lstadd_node_back(&(control->stack_a), new);
+		control->size_a += 1;
+		i++;
 	}
-	return (*lst);
+	if (check_double(control) == -1)
+		return (-1);
+	return (0);
 }
 
-int is_sorted(t_node *lst)
+int	sorting(t_control *control)
 {
-	int value;
-	t_node *temp;
-	
-	while(lst)
-	{
-		value = lst->nb;
-		temp = lst->next;
-		while (temp)
-		{
-			if (value > temp->nb)
-				return (1);
-			if (value == temp->nb)
-				return(ft_printf("value entered twice\n"), 0);
-			temp = temp->next;
-		}
-		lst =lst->next;
-	}
-	return (ft_printf("sorted\n"), 0);
+	push_b(control);
+	push_b(control);
+	push_b(control);
+	rotate_b(control);
+	rotate_ab(control);
+	rotate_ab(control);
+	// swap_a(control);
+	// swap_b(control);
+	// swap_ss(control);
+	// reverse_a(control);
+	// reverse_b(control);
+	// reverse_ab(control);
+	(void)control;
+	return (1);
+}
+
+void init_control(t_control *control)
+{
+	control->stack_a = NULL;
+	control->stack_b = NULL;
+	control->size_a = 0;
+	control->size_b = 0;
+	control->mediane_a = 0;
+	control->mediane_b = 0;
 }
 
 int	main(int argc, char **argv)
 {
-	t_node	*lst;
-	t_node	*temp;
+	t_control	control;
+	t_node		*temp;
+	t_node		*temp_b;
 
-	lst = NULL;
-	if (argc < 2)
-		return (0);
-	if (check_data(argv) == -1)
-		return (ft_printf("wrong input\n"), 0);
-	lst = assign_values(&lst, argv);
-	if (!is_sorted(lst))
-		return(free_lst(&lst), 0);
-
-	temp = lst;
-	
+	init_control(&control);
+	if (parse(&control, argc, argv) == -1)
+		return (ft_printf("Error\n"),0);
+	if (sorting(&control) == -1)
+		return (ft_printf("Error\n"), 0);
+	temp = control.stack_a;
 	while (temp)
 	{
-		printf("%d\n", temp->nb);
+		printf("stack a = %d\n", temp->nb);
 		temp = temp->next;
 	}
+	temp_b = control.stack_b;
+	while (temp_b)
+	{
+		printf("stack b = %d\n", temp_b->nb);
+		temp_b = temp_b->next;
+	}
+	printf("siza a = %d\n", control.size_a);
+	printf("siza b = %d\n", control.size_b);
 }

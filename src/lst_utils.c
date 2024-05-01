@@ -5,31 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 16:27:17 by trolland          #+#    #+#             */
-/*   Updated: 2024/04/09 17:35:36 by trolland         ###   ########.fr       */
+/*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
+/*   Updated: 2024/05/01 19:24:23 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
-t_node	*new_node(char *str)
+t_node	*ft_lstnew_node(char *nbr)
 {
-	int		i;
-	int		value;
 	t_node	*new;
+	int		nb;
 
-	i = 0;
-	value = ft_atoll(str);
-	if (value != ft_atoi(str))
+	if (verify_elements(nbr) == -1)
 		return (NULL);
-	new = ft_calloc(1, sizeof(t_node));
+	nb = ft_atoll(nbr);
+	if (nb > 2147483647 || nb < -2147483648)
+        return (NULL);
+	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
-	new->nb = value;
+	new->nb = nb;
+	new->next = NULL;
 	return (new);
 }
 
-t_node	*lstlast_node(t_node *lst)
+t_node	*ft_lstlast_node(t_node *lst)
 {
 	t_node	*last;
 
@@ -41,7 +43,7 @@ t_node	*lstlast_node(t_node *lst)
 	return (last);
 }
 
-void	add_node_back(t_node **alst, t_node *new)
+void	ft_lstadd_node_back(t_node **alst, t_node *new)
 {
 	t_node	*lst;
 
@@ -50,20 +52,15 @@ void	add_node_back(t_node **alst, t_node *new)
 		*alst = new;
 		return ;
 	}
-	lst = lstlast_node(*alst);
+	lst = ft_lstlast_node(*alst);
 	lst->next = new;
 }
 
-void	free_lst(t_node **lst)
+void ft_lstadd_node_front(t_node **alst, t_node *new)
 {
-	t_node *temp;
-	t_node *to_free;
-
-	temp = *lst;
-	while (temp)
+	if (alst && new)
 	{
-		to_free = temp;
-		temp = temp->next;
-		free(to_free);
+		new->next = *alst;
+		*alst = new;
 	}
 }
