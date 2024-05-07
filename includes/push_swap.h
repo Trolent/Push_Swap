@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:38:07 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 10:59:14 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/07 18:38:51 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_control
 	int				mediane_a;
 	int				mediane_b;
 	int				stack_a_max;
+	int				stack_b_max;
 }					t_control;
 
 t_node				*ft_lstnew_node(char *nbr);
@@ -62,5 +63,22 @@ void				rotate_ab(t_control *control);
 void				reverse_a(t_control *control);
 void				reverse_b(t_control *control);
 void				reverse_ab(t_control *control);
+
+void				get_target_a(t_control *control);
+void				get_target_b(t_control *control);
+t_node				*max_node(t_node *stack);
+
+void				get_cost(t_control *control);
+
+int					parse(t_control *control, int argc, char **argv);
+
+void				move_to_a(t_control *control);
+void				move_to_b(t_control *control);
+
+void				indexing(t_control *control);
+
+t_node				*min_node(t_node *stack);
+
+void				free_stack(t_node *stack);
 
 #endif

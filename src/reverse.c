@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:28:38 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/01 19:00:03 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:00:39 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void	reverse_ab(t_control *control)
 		control->stack_b = temp->next;
 		temp->next = NULL;
 	}
-    if (temp != NULL)
-	    ft_printf("rrr\n");
+	if (temp != NULL)
+		ft_printf("rrr\n");
 }

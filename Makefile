@@ -6,7 +6,7 @@
 #    By: trolland <trolland@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 16:23:19 by trolland          #+#    #+#              #
-#    Updated: 2024/05/01 20:00:21 by trolland         ###   ########.fr        #
+#    Updated: 2024/05/07 15:55:44 by trolland         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = push_swap
 
 LIBFT	= 	libft/libft.a
 
-SRC := 		main.c lst_utils.c push.c reverse.c swap.c rotate.c
+SRC := 		main.c lst_utils.c push.c reverse.c swap.c rotate.c target.c cost.c \
+			parse.c move_to_a_b.c
 			
 SRCS := 	$(addprefix src/, $(SRC))
 OBJS := 	$(patsubst src/%.c, object/%.o, $(SRCS))

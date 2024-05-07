@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/01 19:24:23 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/07 18:56:07 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 t_node	*ft_lstnew_node(char *nbr)
 {
-	t_node	*new;
-	int		nb;
+	t_node		*new;
+	long long	nb;
 
 	if (verify_elements(nbr) == -1)
 		return (NULL);
 	nb = ft_atoll(nbr);
 	if (nb > 2147483647 || nb < -2147483648)
-        return (NULL);
+		return (NULL);
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
@@ -56,7 +56,7 @@ void	ft_lstadd_node_back(t_node **alst, t_node *new)
 	lst->next = new;
 }
 
-void ft_lstadd_node_front(t_node **alst, t_node *new)
+void	ft_lstadd_node_front(t_node **alst, t_node *new)
 {
 	if (alst && new)
 	{

@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:03:28 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/01 19:33:10 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/07 19:00:35 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	swap_ss(t_control *control)
 {
 	t_node	*temp;
 
-    temp = NULL;
+	temp = NULL;
 	if (!(control->stack_a == NULL || control->stack_a->next == NULL))
 	{
 		temp = control->stack_a;
@@ -58,6 +58,6 @@ void	swap_ss(t_control *control)
 		temp->next = control->stack_b->next;
 		control->stack_b->next = temp;
 	}
-    if (temp)
-        ft_printf("ss\n");
+	if (temp)
+		ft_printf("ss\n");
 }
