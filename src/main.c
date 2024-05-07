@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:23 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/01 20:08:21 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/07 11:00:13 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,70 @@ int	parse(t_control *control, int argc, char **argv)
 	return (0);
 }
 
+int check_sort(t_control *control)
+{
+	t_node	*temp;
+
+	temp = control->stack_a;
+	while (temp->next)
+	{
+		if (temp->nb > temp->next->nb)
+			return (-1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+void three_a(t_control *control)
+{
+	while(control->size_a > 3)
+	{
+		push_b(control);
+	}
+}
+
+void sort_three(t_control *control)
+{
+	t_node	*temp;
+	int	max;
+
+	temp = control->stack_a;
+	control->stack_a_max = temp->nb;
+	while (temp->next)
+	{
+		if (temp->nb > control->stack_a_max)
+			control->stack_a_max = temp->nb;
+		temp = temp->next;
+	}
+	if (control->stack_a->nb == control->stack_a_max)
+	{
+		rotate_a(control);
+		if (control->stack_a->nb > control->stack_a->next->nb)
+			swap_a(control);
+	}
+	else if (control->stack_a->next->nb == control->stack_a_max)
+	{
+		reverse_a(control);
+		if (control->stack_a->nb > control->stack_a->next->nb)
+			swap_a(control);
+	}
+	else
+		if (control->stack_a->nb > control->stack_a->next->nb)
+			swap_a(control);
+}
+
 int	sorting(t_control *control)
 {
-	push_b(control);
-	push_b(control);
-	push_b(control);
-	rotate_b(control);
-	rotate_ab(control);
-	rotate_ab(control);
+	if (check_sort(control) == 0)
+		return (0);
+	three_a(control);
+	sort_three(control);
+	// push_b(control);
+	// push_b(control);
+	// push_b(control);
+	// rotate_b(control);
+	// rotate_ab(control);
+	// rotate_ab(control);
 	// swap_a(control);
 	// swap_b(control);
 	// swap_ss(control);
