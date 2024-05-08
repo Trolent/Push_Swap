@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:35:14 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:00:27 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:32:42 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ void	get_target_a(t_control *control)
 	{
 		temp_b = control->stack_b;
 		closest = NULL;
-		diff = (unsigned int)-1;
+		diff = 0;
 		while (temp_b)
 		{
-			if (temp_a->nb > temp_b->nb && temp_a->nb - temp_b->nb < diff)
+			if (temp_b->nb < temp_a->nb && temp_b->nb > diff)
 			{
-				diff = temp_a->nb - temp_b->nb;
+				diff  = temp_b->nb;
 				closest = temp_b;
 			}
 			temp_b = temp_b->next;

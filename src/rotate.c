@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:39:26 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/01 20:08:44 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:11:46 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rotate_b(t_control *control)
 	control->stack_b = control->stack_b->next;
 	temp->next = NULL;
 	ft_lstadd_node_back(&control->stack_b, temp);
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 void	rotate_ab(t_control *control)

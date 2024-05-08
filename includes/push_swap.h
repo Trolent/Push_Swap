@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:38:07 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:54:02 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:56:43 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_node
 	int				cost;
 
 	struct s_node	*next;
-	struct s_node	*prev;
 	struct s_node	*target;
 }					t_node;
 
@@ -39,7 +38,6 @@ typedef struct s_control
 	int				mediane_a;
 	int				mediane_b;
 	int				stack_a_max;
-	int				stack_b_max;
 }					t_control;
 
 t_node				*ft_lstnew_node(char *nbr);

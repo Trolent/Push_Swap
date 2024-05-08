@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 19:53:21 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 20:00:22 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:41:14 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,21 @@ void	sort_three_a(t_control *control)
 		swap_a(control);
 }
 
+// void median_sort(t_control *control)
+// {
+//     t_node *temp;
+    
+// }
+
 int	sorting(t_control *control)
 {
 	if (check_sort(control) == 0)
 		return (0);
 	if (control->size_a > 3)
+    {
+        // median_sort(control);
 		move_to_b(control);
+    }
 	sort_three_a(control);
 	if (control->size_b > 0)
 		move_to_a(control);
