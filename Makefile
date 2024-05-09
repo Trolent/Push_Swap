@@ -6,7 +6,7 @@
 #    By: trolland <trolland@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 16:23:19 by trolland          #+#    #+#              #
-#    Updated: 2024/05/09 20:07:38 by trolland         ###   ########.fr        #
+#    Updated: 2024/05/09 21:32:57 by trolland         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,10 +76,17 @@ norm:
 	@echo 'Checking header files...'
 	@output_header=$$(norminette -R CheckDefine includes/*.h); \
 	echo "$$output_header" | awk '/Error/ {print "\033[0;31m" $$0 "\033[0m"}'; \
+	echo 'Checking main file...'; \
+	output_main=$$(norminette -R CheckForbiddenSourceHeader main/*.c); \
+	echo "$$output_main" | awk '/Error/ {print "\033[0;31m" $$0 "\033[0m"}'; \
+	echo 'Checking main_bonus file...'; \
+	output_main_bonus=$$(norminette -R CheckForbiddenSourceHeader main_bonus/*.c); \
+	echo "$$output_main_bonus" | awk '/Error/ {print "\033[0;31m" $$0 "\033[0m"}'; \
 	echo 'Checking source files...'; \
 	output_source=$$(norminette -R CheckForbiddenSourceHeader src/*.c); \
 	echo "$$output_source" | awk '/Error/ {print "\033[0;31m" $$0 "\033[0m"}'; \
-	total_errors=$$(echo "$$output_header $$output_source" | grep -c 'Error:'); \
+	total_errors=$$(echo "$$output_header $$output_source $$output_main \
+	$$output_main_bonus" | grep -c 'Error:'); \
 	if [ $$total_errors -gt 0 ]; then \
 	    echo "\033[0;31m$$total_errors errors found\033[0m"; \
 	else \

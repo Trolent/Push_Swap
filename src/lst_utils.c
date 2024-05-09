@@ -6,21 +6,51 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 19:34:26 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:26:24 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+long long	special_atoll(const char *str)
+{
+	int			i;
+	long long	res;
+	int			neg;
+
+	i = 0;
+	res = 0;
+	neg = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg = -neg;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + str[i] - '0';
+		i++;
+		if (res > 2147483647 || res < -2147483648)
+			return (1);
+	}
+	return (res * neg);
+}
+
 t_node	*ft_lstnew_node(char *nbr)
 {
 	t_node		*new;
 	long long	nb;
+	long long	verif;
 
 	if (verify_elements(nbr) == -1)
 		return (NULL);
-	nb = ft_atoll(nbr);
-	if (nb > 2147483647 || nb < -2147483648)
+	verif = special_atoll(nbr);
+	nb = ft_atoi(nbr);
+	printf("%lld && %lld\n", nb, verif);
+	if (verif != nb)
 		return (NULL);
 	new = malloc(sizeof(t_node));
 	if (!new)

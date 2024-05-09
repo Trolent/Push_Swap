@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:23 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 19:46:13 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:30:17 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 
 	init_control(&control);
 	if (argc == 1)
-		return(0);
+		return (0);
 	if (parse(&control, argc, argv) == -1)
 		return (ft_putstr_fd("Error\n", 2), 0);
 	if (sorting(&control) == -1)
