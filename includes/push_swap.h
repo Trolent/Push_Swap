@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:38:07 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/08 23:27:01 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:03:14 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_control
 	int				mediane_a;
 	int				mediane_b;
 	int				stack_a_max;
+	int				median_value;
+	int				checker;
 }					t_control;
 
 t_node				*ft_lstnew_node(char *nbr);
@@ -82,5 +84,12 @@ void				free_stack(t_control *control);
 int					sorting(t_control *control);
 
 int					check_sort(t_control *control);
+
+void				sort_tab(int **tab, int size);
+int					define_median(t_control *control, char **argv, int index);
+
+int					check_sort(t_control *control);
+void				ascending(t_control *control);
+void				get_max(t_control *control);
 
 #endif

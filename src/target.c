@@ -6,11 +6,10 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:35:14 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/08 19:32:42 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:34:45 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
 t_node	*max_node(t_node *stack)
@@ -62,7 +61,7 @@ void	get_target_a(t_control *control)
 		{
 			if (temp_b->nb < temp_a->nb && temp_b->nb > diff)
 			{
-				diff  = temp_b->nb;
+				diff = temp_b->nb;
 				closest = temp_b;
 			}
 			temp_b = temp_b->next;

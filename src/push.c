@@ -6,11 +6,10 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:28:38 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:00:45 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:34:32 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
 void	push_b(t_control *control)
@@ -25,7 +24,8 @@ void	push_b(t_control *control)
 	control->stack_b = temp;
 	control->size_a -= 1;
 	control->size_b += 1;
-	ft_printf("pb\n");
+	if (control->checker == 0)
+		ft_printf("pb\n");
 }
 
 void	push_a(t_control *control)
@@ -40,5 +40,6 @@ void	push_a(t_control *control)
 	control->stack_a = temp;
 	control->size_a += 1;
 	control->size_b -= 1;
-	ft_printf("pa\n");
+	if (control->checker == 0)
+		ft_printf("pa\n");
 }

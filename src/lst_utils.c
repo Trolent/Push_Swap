@@ -6,11 +6,10 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 18:56:07 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:34:26 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
 t_node	*ft_lstnew_node(char *nbr)

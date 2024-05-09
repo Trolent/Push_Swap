@@ -6,54 +6,17 @@
 #    By: trolland <trolland@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 16:23:19 by trolland          #+#    #+#              #
-#    Updated: 2024/05/08 23:33:19 by trolland         ###   ########.fr        #
+#    Updated: 2024/05/09 20:07:38 by trolland         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# NAME = push_swap
-
-# LIBFT	= 	libft/libft.a
-
-# SRC := 		main.c lst_utils.c push.c reverse.c swap.c rotate.c target.c cost.c \
-# 			parse.c move_to_a_b.c sort.c
-
-# SRCS := 	$(addprefix src/, $(SRC))
-# OBJS := 	$(patsubst src/%.c, object/%.o, $(SRCS))
-# DEPS := 	$(OBJS:.o=.d)
-
-# SRCS_BONUS := 	$(addprefix src_bonus/, $(SRC))
-# OBJS_BONUS := 	$(patsubst src_bonus/%.c, object_bonus/%.o, $(SRCS_BONUS))
-# DEPS_BONUS := 	$(OBJS_BONUS:.o=.d)
-
-# CC := cc
-
-# CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iincludes -Ilibft -g
-
-# all:	$(NAME)
-
-# $(NAME): $(OBJS) $(LIBFT)
-# 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	
-# bonus: $(OBJS_BONUS) $(LIBFT)
-# 	$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME)
-
-# object_bonus/%.o: src_bonus/%.c
-# 	@if [ ! -d "object_bonus" ]; then mkdir object_bonus; fi
-# 	@printf "\033[0;32m\tCompiling: $<\033[0m\n";
-# 	@$(CC) $(CFLAGS) -c $< -o $@
-
-
-# object/%.o: src/%.c
-# 	@if [ ! -d "object" ]; then mkdir object; fi
-# 	@printf "\033[0;32m\tCompiling: $<\033[0m\n";
-# 	@$(CC) $(CFLAGS) -c $< -o $@
 
 NAME = push_swap
 BONUS_NAME = checker
 
 LIBFT	= 	libft/libft.a
 
-SRC := lst_utils.c push.c reverse.c swap.c rotate.c target.c cost.c parse.c move_to_a_b.c sort.c
+SRC := lst_utils.c push.c reverse.c swap.c rotate.c target.c cost.c parse.c \
+		move_to_a_b.c sort.c median.c sort_utils.c
 
 SRCS := $(addprefix src/, $(SRC))
 OBJS := $(patsubst src/%.c, object/%.o, $(SRCS))
@@ -68,10 +31,12 @@ CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iincludes -Ilibft -g
 
 all: $(NAME)
 
+bonus: $(BONUS_NAME)
+
 $(NAME): $(OBJS) object/main.o $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) object/main.o $(LIBFT) -o $(NAME)
 
-bonus: $(OBJS) object/bonus_main.o $(LIBFT)
+$(BONUS_NAME): $(OBJS) object/bonus_main.o $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) object/bonus_main.o $(LIBFT) -o $(BONUS_NAME)
 
 object/%.o: src/%.c

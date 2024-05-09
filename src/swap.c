@@ -6,11 +6,10 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:03:28 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:00:35 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:34:36 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/errors_map.h"
 #include "../includes/push_swap.h"
 
 void	swap_a(t_control *control)
@@ -23,7 +22,8 @@ void	swap_a(t_control *control)
 	control->stack_a = control->stack_a->next;
 	temp->next = control->stack_a->next;
 	control->stack_a->next = temp;
-	ft_printf("sa\n");
+	if (control->checker == 0)
+		ft_printf("sa\n");
 }
 
 void	swap_b(t_control *control)
@@ -36,7 +36,8 @@ void	swap_b(t_control *control)
 	control->stack_b = control->stack_b->next;
 	temp->next = control->stack_b->next;
 	control->stack_b->next = temp;
-	ft_printf("sb\n");
+	if (control->checker == 0)
+		ft_printf("sb\n");
 }
 
 void	swap_ss(t_control *control)
@@ -58,6 +59,6 @@ void	swap_ss(t_control *control)
 		temp->next = control->stack_b->next;
 		control->stack_b->next = temp;
 	}
-	if (temp)
+	if (temp && control->checker == 0)
 		ft_printf("ss\n");
 }
