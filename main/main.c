@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:23 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:59:48 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:51:31 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	main(int argc, char **argv)
 		return (ft_printf("Error\n"), 0);
 	if (sorting(&control) == -1)
 		return (ft_printf("Error\n"), 0);
-	free_stack(control.stack_a);
+	free_stack(&control);
 }

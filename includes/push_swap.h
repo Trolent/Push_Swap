@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:38:07 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/08 20:56:43 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 23:27:01 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ void				indexing(t_control *control);
 
 t_node				*min_node(t_node *stack);
 
-void				free_stack(t_node *stack);
+void				free_stack(t_control *control);
 
 int					sorting(t_control *control);
+
+int					check_sort(t_control *control);
 
 #endif

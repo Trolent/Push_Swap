@@ -6,16 +6,26 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:46:33 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/07 19:00:49 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/08 22:53:25 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_stack(t_node *stack)
+void	free_stack(t_control *control)
+
 {
 	t_node	*temp;
+	t_node	*stack;
 
+	stack = control->stack_a;
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
+	stack = control->stack_b;
 	while (stack)
 	{
 		temp = stack;
@@ -76,7 +86,7 @@ int	create_stack(t_control *control, int argc, char **argv, int *i)
 		{
 			if (argc == 2)
 				ft_free_tab(argv);
-			free_stack(control->stack_a);
+			free_stack(control);
 			return (-1);
 		}
 		ft_lstadd_node_back(&(control->stack_a), new);
