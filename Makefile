@@ -6,7 +6,7 @@
 #    By: trolland <trolland@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 16:23:19 by trolland          #+#    #+#              #
-#    Updated: 2024/05/09 21:32:57 by trolland         ###   ########.fr        #
+#    Updated: 2024/05/10 09:02:22 by trolland         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS_NAME = checker
 LIBFT	= 	libft/libft.a
 
 SRC := lst_utils.c push.c reverse.c swap.c rotate.c target.c cost.c parse.c \
-		move_to_a_b.c sort.c median.c sort_utils.c
+		move_to_a_b.c sort.c thirds.c sort_utils.c
 
 SRCS := $(addprefix src/, $(SRC))
 OBJS := $(patsubst src/%.c, object/%.o, $(SRCS))

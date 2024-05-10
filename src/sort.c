@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 19:53:21 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 20:03:23 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:06:49 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,26 @@ void	sort_three_a(t_control *control)
 		swap_a(control);
 }
 
-void	median_sort(t_control *control)
+void	third_sort(t_control *control)
 {
-	push_b(control);
 	while (control->size_a > 3)
 	{
-		if (control->stack_a->nb > control->median_value)
+		while (control->size_a > 3 && control->size_a > control->third_len)
 		{
-			push_b(control);
-			rotate_b(control);
+			if (control->stack_a->nb < control->first_third)
+			{
+				push_b(control);
+				if (control->stack_a->nb > control->seconde_third)
+					rotate_ab(control);
+				else
+					rotate_b(control);
+			}
+			else if (control->stack_a->nb > control->seconde_third)
+				rotate_a(control);
+			else
+				push_b(control);
 		}
-		else
+		if (control->size_a > 3)
 			push_b(control);
 	}
 }
@@ -61,7 +70,7 @@ int	sorting(t_control *control)
 	if (check_sort(control) == 0)
 		return (0);
 	if (control->size_a > 5)
-		median_sort(control);
+		third_sort(control);
 	else if (control->size_a > 3)
 		sort_small(control);
 	sort_three_a(control);

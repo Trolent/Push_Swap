@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:23 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 21:30:17 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:43:21 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	init_control(t_control *control)
 	control->mediane_a = 0;
 	control->mediane_b = 0;
 	control->stack_a_max = 0;
-	control->median_value = 0;
+	control->third_len = 0;
+	control->first_third = 0;
+	control->seconde_third = 0;
 	control->checker = 0;
 }
 

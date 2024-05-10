@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 21:26:24 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:27:47 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ t_node	*ft_lstnew_node(char *nbr)
 		return (NULL);
 	verif = special_atoll(nbr);
 	nb = ft_atoi(nbr);
-	printf("%lld && %lld\n", nb, verif);
 	if (verif != nb)
 		return (NULL);
 	new = malloc(sizeof(t_node));

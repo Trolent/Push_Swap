@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   median.c                                           :+:      :+:    :+:   */
+/*   thirds.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:00:54 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 21:05:58 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:23:53 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_tab(int **tab, int size)
+void	sort_tab(int **tab, int size, t_control *control)
 {
 	int	i;
 	int	j;
@@ -29,9 +29,16 @@ void	sort_tab(int **tab, int size)
 		}
 		i++;
 	}
+	if (size % 3 == 0)
+		i = size / 3;
+	else
+		i = size / 3 + 1;
+	control->first_third = tab[0][i - 1];
+	control->seconde_third = tab[0][i * 2 - 1];
+	control->third_len = size - i * 2 + 2;
 }
 
-int	define_median(t_control *control, char **argv, int index)
+int	define_thirds(t_control *control, char **argv, int index)
 {
 	int	i;
 	int	*tab;
@@ -55,7 +62,6 @@ int	define_median(t_control *control, char **argv, int index)
 		i++;
 		index++;
 	}
-	sort_tab(&tab, i);
-	control->median_value = tab[(i - 1) / 2];
+	sort_tab(&tab, i, control);
 	return (free(tab), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:46:33 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 20:01:54 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:01:58 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	parse(t_control *control, int argc, char **argv)
 			return (-1);
 		i = 0;
 	}
-	if (define_median(control, argv, i) == -1)
+	if (define_thirds(control, argv, i) == -1)
 		return (-1);
 	if (create_stack(control, argc, argv, &i) == -1)
 		return (-1);
