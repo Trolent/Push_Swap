@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 22:36:20 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/10 10:21:00 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:18:28 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	main(int argc, char **argv)
 	if (!line && check_sort(&control) == -1)
 		return (ft_printf("KO\n"), 0);
 	else if (!line && check_sort(&control) == 0)
-		return (ft_printf("OK\n"), 0);
+		return (ft_printf("OK\n"), free_stack(&control), 0);
 	else
 		checker(&control, line);
 	free_stack(&control);

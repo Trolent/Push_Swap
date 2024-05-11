@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:00:54 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/10 10:23:53 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:44:52 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	define_thirds(t_control *control, char **argv, int index)
 		i++;
 		index++;
 	}
-	sort_tab(&tab, i, control);
+	if (i > 5)
+		sort_tab(&tab, i, control);
 	return (free(tab), 0);
 }

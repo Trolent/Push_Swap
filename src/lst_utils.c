@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/10 09:27:47 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:47:39 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ long long	special_atoll(const char *str)
 	{
 		res = (res * 10) + str[i] - '0';
 		i++;
-		if (res > 2147483647 || res < -2147483648)
+		if ((res * neg) > 2147483647 || (res * neg) < -2147483648)
 			return (1);
 	}
 	return (res * neg);

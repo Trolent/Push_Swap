@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:02:40 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 20:02:57 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:37:20 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	check_sort(t_control *control)
 {
 	t_node	*temp;
 
+	if (control->stack_a == NULL)
+		return (-1);
 	temp = control->stack_a;
 	while (temp->next)
 	{
