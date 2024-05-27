@@ -6,7 +6,7 @@
 #    By: trolland <trolland@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 16:23:19 by trolland          #+#    #+#              #
-#    Updated: 2024/05/10 09:02:22 by trolland         ###   ########.fr        #
+#    Updated: 2024/05/19 20:15:51 by trolland         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,17 +27,17 @@ SRC_BONUS := main_bonus/main_bonus.c
 
 CC := cc
 
-CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iincludes -Ilibft -g
+CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iincludes -Ilibft
 
 all: $(NAME)
 
 bonus: $(BONUS_NAME)
 
-$(NAME): $(OBJS) object/main.o $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) object/main.o $(LIBFT) -o $(NAME)
+$(NAME): $(LIBFT) $(OBJS) object/main.o
+	@$(CC) $(CFLAGS) $(OBJS) object/main.o $(LIBFT) -o $(NAME)
 
 $(BONUS_NAME): $(OBJS) object/bonus_main.o $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) object/bonus_main.o $(LIBFT) -o $(BONUS_NAME)
+	@$(CC) $(CFLAGS) $(OBJS) object/bonus_main.o $(LIBFT) -o $(BONUS_NAME)
 
 object/%.o: src/%.c
 	@if [ ! -d "object" ]; then mkdir object; fi
@@ -55,7 +55,7 @@ object/bonus_main.o: $(SRC_BONUS)
 	@$(CC) $(CFLAGS) -c $< -o $@ -DBONUS
 
 $(LIBFT):
-	@$(MAKE) -C libft
+	@$(MAKE) --no-print-directory -C libft
 
 clean:
 	@$(MAKE) --no-print-directory clean -C libft
