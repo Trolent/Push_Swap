@@ -1,6 +1,6 @@
 # Push_swap - Sorting Algorithm Project
 
-Welcome to my Push_swap project! This project aims to implement a sorting algorithm for stacks of integers using various operations to manipulate the stacks.
+Welcome to my Push_swap repositery! This project aims to implement a sorting algorithm for stacks of integers using various limitating operations to manipulate the stacks.
 
 ## Objectives
 
@@ -18,7 +18,8 @@ The main objectives of this project are:
 To compile the project, use the following commands:
 
 ```bash
-make        # Compiles the project and generates the executables.
+make        # Compiles the project and generates the ./push_swap executable.
+make bonus  # Compiles the project and generates the ./checker executable.
 make clean  # Deletes the compiled object files.
 make fclean # Deletes the compiled object files and the executables.
 make re     # Fully recompiles the project.
@@ -72,6 +73,9 @@ Controls and Output
 7. **Final Adjustment:**
     - Once all elements are back in stack `a`, the algorithm ensures the smallest element is on top and the stack is in ascending order.
 
+### Demonstration
+
+![Push_swap Demonstration](https://github.com/Trolent/Push_Swap/blob/main/git_resource/Push_Swap_Visu.gif)
 
 ## Educational Value
 
@@ -82,13 +86,9 @@ This project is valuable for learning:
 - **Error Handling:** Implementing robust error handling for user input and program execution.
 - **Linked lists:** Using linked list and managing them.
 
-Thank you for exploring this project! I hope it provides insights into sorting algorithms and their implementations in C.
+  
+## Documentation
 
-
-
-
-
-
-
-
-
+- With thanks to o-reo for his push_swap_visualiser. You can find the repository [here](https://github.com/o-reo/push_swap_visualizer).
+- Special thanks to Ayogun for inspirationnal "Turk sort" algorithm. You can read about it in this [Medium article](https://medium.com/@ayogun/push-swap-c1f5d2d41e97).
+- And to [@akdovlet](https://github.com/akdovlet) for the median sort idea that I tansformed into thirds.
