@@ -6,13 +6,13 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:00:54 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/11 17:44:52 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:51:25 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_tab(int **tab, int size, t_control *control)
+static void	sort_tab(int **tab, int size, t_control *control)
 {
 	int	i;
 	int	j;

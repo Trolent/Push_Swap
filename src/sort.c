@@ -6,13 +6,29 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 19:53:21 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/10 11:06:49 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:29:52 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three_a(t_control *control)
+static void	get_max(t_control *control)
+{
+	t_node	*temp;
+	int		*max;
+
+	temp = control->stack_a;
+	max = &(control->stack_a_max);
+	*max = -2147483648;
+	while (temp)
+	{
+		if (temp->nb > *max)
+			*max = temp->nb;
+		temp = temp->next;
+	}
+}
+
+static void	sort_three_a(t_control *control)
 {
 	get_max(control);
 	if (control->stack_a->nb == control->stack_a_max)
@@ -31,7 +47,7 @@ void	sort_three_a(t_control *control)
 		swap_a(control);
 }
 
-void	third_sort(t_control *control)
+static void	third_sort(t_control *control)
 {
 	while (control->size_a > 3)
 	{
@@ -55,7 +71,7 @@ void	third_sort(t_control *control)
 	}
 }
 
-void	sort_small(t_control *control)
+static void	sort_small(t_control *control)
 {
 	push_b(control);
 	if (control->size_a > 3)

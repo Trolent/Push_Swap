@@ -6,11 +6,27 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 20:02:40 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/11 17:37:20 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:18:55 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+t_node	*min_node(t_node *stack)
+{
+	t_node	*temp;
+	t_node	*min;
+
+	temp = stack;
+	min = temp;
+	while (temp)
+	{
+		if (temp->nb < min->nb)
+			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
 
 int	check_sort(t_control *control)
 {
@@ -41,21 +57,5 @@ void	ascending(t_control *control)
 			rotate_a(control);
 		else
 			reverse_a(control);
-	}
-}
-
-void	get_max(t_control *control)
-{
-	t_node	*temp;
-	int		*max;
-
-	temp = control->stack_a;
-	max = &(control->stack_a_max);
-	*max = -2147483648;
-	while (temp)
-	{
-		if (temp->nb > *max)
-			*max = temp->nb;
-		temp = temp->next;
 	}
 }

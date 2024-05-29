@@ -6,13 +6,13 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:39:19 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/11 17:47:39 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:28:52 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long long	special_atoll(const char *str)
+static long long	special_atoll(const char *str)
 {
 	int			i;
 	long long	res;

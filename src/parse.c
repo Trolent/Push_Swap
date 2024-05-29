@@ -6,7 +6,7 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:46:33 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/11 17:29:37 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:54:20 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	verify_elements(char *str)
 	return (1);
 }
 
-int	check_double(t_control *control)
+static int	check_double(t_control *control)
 {
 	t_node	*temp;
 	t_node	*comp;
@@ -74,7 +74,7 @@ int	check_double(t_control *control)
 	return (0);
 }
 
-int	create_stack(t_control *control, int argc, char **argv, int *i)
+static int	create_stack(t_control *control, int argc, char **argv, int *i)
 {
 	t_node	*new;
 

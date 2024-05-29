@@ -6,13 +6,13 @@
 /*   By: trolland <trolland@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:55:13 by trolland          #+#    #+#             */
-/*   Updated: 2024/05/09 19:59:49 by trolland         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:10:27 by trolland         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	indexing(t_control *control)
+static void	indexing(t_control *control)
 {
 	t_node	*temp;
 	int		i;
@@ -37,7 +37,7 @@ void	indexing(t_control *control)
 	}
 }
 
-t_node	*get_chepest_cost(t_control *control)
+static t_node	*get_chepest_cost(t_control *control)
 {
 	t_node	*temp;
 	t_node	*cheapest;
@@ -55,7 +55,7 @@ t_node	*get_chepest_cost(t_control *control)
 	return (cheapest);
 }
 
-void	ops_details(t_control *control, t_node*temp)
+static void	ops_details(t_control *control, t_node*temp)
 {
 	while ((temp->index != 0 || temp->target->index != 0))
 	{
@@ -81,7 +81,7 @@ void	ops_details(t_control *control, t_node*temp)
 	}
 }
 
-void	do_ops_ba(t_control *control)
+static void	do_ops_ba(t_control *control)
 {
 	t_node	*temp;
 
